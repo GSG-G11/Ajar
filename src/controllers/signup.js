@@ -10,7 +10,7 @@ const signUp = (req, res) => {
     .then((resop) => bcrypt.hash(resop.password, 10))
     .then((hashedPassword) => insertUser(username, email, hashedPassword))
     .then((data) => res.status(201).cookie(usename, token).redirect('/'))
-    .catch((err) => res.send(err.name));
+    .catch((err) => res.send(err));
 };
 
 module.exports = signUp;
