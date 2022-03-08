@@ -21,5 +21,3 @@ const carsDom = (cars) => {
     price.textContent = car.price;
   });
 };
-
-module.exports = carsDom;
