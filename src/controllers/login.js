@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const getUser = require('../database/quires');
-
+const jwt = require('jsonwebtoken');
 const login = (req, res) => {
   const { email, password } = req.body;
+  const token = jwt.sign(username, 'secretkeyfromenvfile')
   getUser(email)
     .then((result) => {
       if (result.rows.length === 0) {
@@ -19,7 +20,7 @@ const login = (req, res) => {
           if (!isMatch) {
             res.status(401).json('error from not match');
           } else {
-            res.status(200).redirect('/');
+            res.status(200).cookie("usename", token).redirect('/');
           }
         }
       });
