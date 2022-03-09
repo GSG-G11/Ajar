@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 const bcrypt = require('bcryptjs');
-const getUser = require('../database/quires');
+const { getUser } = require('../database/quires');
 const { signInSchema } = require('../utilites/vaildation');
 const jwt = require('jsonwebtoken');
 
