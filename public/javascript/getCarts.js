@@ -1,37 +1,40 @@
-fetch('/myCart')
-  .then((res) => res.json())
-  .then((carts) => {
-    const container = document.querySelector('.container');
-    carts.forEach((cart) => {
-      const cartRow = document.createElement('div');
-      const carName = document.createElement('h3');
-      const deleteBtn = document.createElement('button');
+const userName = document.querySelector('#cookies');
 
-      carName.textContent = cart.name;
-      deleteBtn.textContent = 'Delete';
+const getCookie = (cname) => {
+  const name = `${cname}=`;
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i += 1) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+};
 
-      container.appendChild(cartRow);
-      cartRow.appendChild(carName);
-      cartRow.appendChild(deleteBtn);
+if (!getCookie('token')) {
+  window.location = './signin.html';
+} else {
+  userName.textContent = getCookie('name');
 
-      const getCookie = (cname) => {
-        const name = `${cname}=`;
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i += 1) {
-          let c = ca[i];
-          while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return '';
-      };
+  fetch('/myCart')
+    .then((res) => res.json())
+    .then((carts) => {
+      const container = document.querySelector('.container');
+      carts.forEach((cart) => {
+        const cartRow = document.createElement('div');
+        const carName = document.createElement('h3');
+        const deleteBtn = document.createElement('button');
 
-      const cookies = document.cookie;
-      console.log(cookies.split());
-      const userName = document.querySelector('#cookies');
-      userName.textContent = getCookie('name');
+        carName.textContent = cart.name;
+        deleteBtn.textContent = 'Delete';
+
+        container.appendChild(cartRow);
+        cartRow.appendChild(carName);
+        cartRow.appendChild(deleteBtn);
+      });
     });
-  });
+}
