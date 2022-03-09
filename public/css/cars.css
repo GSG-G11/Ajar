@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
+    width: 30%;
   }
   nav .links ul {
     display: flex;
@@ -55,16 +55,56 @@
     height: 100px;
     border: none;
   }
-  .signin-form{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 600px;
+  .welcome-title{
+    margin: 100px 0 20px 100px;
   }
-
-
-
+  hr{
+    width: 85%;
+    margin-left: 100px;
+  }
+  .container{
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card{
+    width: 270px;
+    height: fit-content;
+    background-color: var(--second-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+  }
+  .card img{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .card h3{
+    margin-bottom: 10px;
+  }
+  .card p {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .card button{
+    background-color: var(--main-color);
+    color: #ffff;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 120px;
+  }
+  .card button:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    border: solid 1px var(--main-color);
+  }
 
   
 

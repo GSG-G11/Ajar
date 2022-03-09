@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
   }).then((res) => res.json())
     .then((results) => {
       if (results.redirect) {
-        window.location = '/';
+        window.location = '/html/cars.html';
       } else {
         errorMessage.textContent = results.msg;
       }
