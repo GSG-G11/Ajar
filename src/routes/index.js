@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  signUp, login, deleteFromCart, addToCart, renderCars
+  signUp, login, deleteFromCart, addToCart, renderCars,
 } = require('../controllers');
 
 router.post('/signup', signUp);
