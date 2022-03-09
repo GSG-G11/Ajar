@@ -15,12 +15,10 @@ const login = (req, res) => {
       bcrypt.compare(password, hashedPass, (err, isMatch) => {
         if (err) {
           res.status(500).json('from compair');
+        } else if (!isMatch) {
+          res.status(401).json('error from not match');
         } else {
-          if (!isMatch) {
-            res.status(401).json('error from not match');
-          } else {
-            res.status(200).redirect('/');
-          }
+          res.status(200).redirect('/');
         }
       });
     })
