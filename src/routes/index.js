@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const { signUp, login ,logout } = require('../controllers');
+const { signUp, login ,deleteCar} = require('../controllers');
 
 router.post('/signup', signUp);
 router.post('/login', login);
-router.post('/logout', logout);
+router.post('/delete', deleteCar);
 
 module.exports = { router };

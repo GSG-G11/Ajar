@@ -1,3 +1,4 @@
 const getUser = require('./getUser');
+const deleteCar = require('./deleteItem');
 
-module.exports = getUser;
+module.exports = { getUser,deleteCar} ;
