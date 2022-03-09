@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signin.css" >
-    <title>signin</title>
+    <title>Sign Up</title>
 </head>
 <body>
   <nav>
@@ -21,18 +21,18 @@
             <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
               <a href="./signIn.html">Login</a>
-              <a href="./signIn.html">Sign Up</a>
+              <a href="./signup.html">Sign Up</a>
             </div>
           </div>
         </nav>
         <div class="signin-form">
-          <form action="/login" id="login" method="post">
+          <form action="/signup" id="signup" method="post">
             <img src="../assets/bmw-R8.png">
+              <input class="username" name="username" type="text" placeholder="username" required >
               <input class="email" name="email" type="email" placeholder="Enter Your E-mail" required >
               <input class="password" name="password" type="password" placeholder="Enter Your Password" required>
               <p id="error"></p>
-                <button class="signin" type="submit">Sign In</button>
-                <p>Don't Have An Account? <a href="../html/signUp.html">Sigin Up</a></p>
+                <button class="signin" type="submit">Sign Up</button>
           </form>
         </div>
         <footer>
@@ -46,6 +46,6 @@
             <a href="../index.html"><li>Home</li></a>
           </ul>
         </footer>
-        <script src="../javascript/singin.js"></script>
+        <script src="../javascript/signUp.js"></script>
 </body>
 </html>
