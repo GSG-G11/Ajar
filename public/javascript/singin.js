@@ -1,21 +1,27 @@
-const userName=document.querySelector('.username')
-const email=document.querySelector('.email')
-const password=document.querySelector('.password')
-const signBtn=document.querySelector('signin')
+const email = document.querySelector('.email');
+const password = document.querySelector('.password');
+const form = document.querySelector('#login');
+const errorMessage = document.querySelector('#error');
 
-
-signBtn.addEventListener('click',()=>{
-
-let inputData ={username:userName.value, email:email.value, password:password.value } 
-console.log(inputData)
-fetch("/signin",{
-    method:"POST",
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const inputData = { email: email.value, password: password.value };
+  console.log(email.value);
+  console.log(password.value);
+  fetch('/login', {
+    method: 'POST',
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-  },
-    body:JSON.stringify(inputData)
-
-
-})
-}
-)
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(inputData),
+  }).then((res) => {
+    if (res.status === 200) {
+      window.location = '/';
+    } else {
+      res.json().then((results) => {
+        errorMessage.textContent = results.msg;
+      });
+    }
+  });
+});

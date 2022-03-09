@@ -17,13 +17,16 @@
         <ul>
             <a href="../index.html"><li>Home</li></a>
           </ul>
-          <select>
-            <option>SignIn</option>
-            <option>SignUp</option>
-          </select>
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="./html/signIn.html">Login</a>
+              <a href="./html/signIn.html">Sign Up</a>
+            </div>
+          </div>
         </nav>
         <div class="signin-form">
-          <form action="/signin" method="post">
+          <form action="/login" id="login" method="post">
             <img src="../assets/bmw-R8.png">
               <input class="email" name="email" type="email" placeholder="Enter Your E-mail" required >
               <input class="password" name="password" type="password" placeholder="Enter Your Password" required>
@@ -45,4 +48,5 @@
         </footer>
         <script src="../javascript/singin.js"></script>
 </body>
+<script src="../javascript/singin.js"></script>
 </html>
