@@ -12,11 +12,13 @@ CREATE TABLE carts (
     id serial primary key,
     user_id int references users(id)  
 );
+
 CREATE TABLE cars (
     id serial primary key,
     name varchar(128) not null,
     type varchar(56) not null,
-    price int not null,
+     image varchar(200),
+    price int default null  ,
     cart_id int references carts(id)
 );
 
