@@ -64,7 +64,7 @@
   }
   form{
       width: 300px;
-      height: 450px;
+      height: 400px;
       background-color: var(--second-color);
       border-radius: 15px;
       display: flex;
@@ -90,6 +90,7 @@
     border-radius: 10px;
     height: 40px;
     width: 120px;
+    margin-bottom: 10px;
   }
   form button:hover{
     background-color: var(--third-color);
