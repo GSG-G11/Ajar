@@ -1,7 +1,7 @@
 const addToCartDB = require('../database/quires/addToCartDB');
 
 const addToCart = (req, res) => {
-  addToCartDB
+  addToCartDB(req.body.userId)
     .then((data) => data.rows)
     .then((result) => res.json(result))
     .catch((err) => console.log(err));

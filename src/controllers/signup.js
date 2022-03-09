@@ -5,7 +5,7 @@ const { signUpSchema } = require('../utilites/vaildation');
 
 const signUp = (req, res) => {
   const { username, email } = req.body;
-  const token = jwt.sign(username, 'secretkeyfromenvfile');
+   const token = jwt.sign(username, 'secretkeyfromenvfile')
   signUpSchema
     .validateAsync(req.body)
     .then((resop) => bcrypt.hash(resop.password, 10))
