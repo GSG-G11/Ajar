@@ -1,5 +1,8 @@
 const signUp = require('./signup');
 const login = require('./login');
+const addToCart = require('./addToCart');
 const logout = require('./logout');
 
-module.exports = { signUp, login ,logout };
+module.exports = {
+  signUp, login, addToCart, logout,
+};
