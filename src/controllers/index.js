@@ -5,9 +5,6 @@ const addToCart = require('./addToCart');
 const logout = require('./logout');
 const renderCars = require('./renderCar');
 
-
-
-
 module.exports = {
-  signUp, login, addToCart, logout, deleteFromCart, renderCars
+  signUp, login, addToCart, logout, deleteFromCart, renderCars,
 };

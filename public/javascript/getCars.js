@@ -1,8 +1,7 @@
-const container = document.querySelector('.container');
 fetch('/cars')
   .then((res) => res.json())
   .then((cars) => {
-      console.log(cars);
+    const container = document.querySelector('.container');
     cars.forEach((car) => {
       const card = document.createElement('div');
       const cardImg = document.createElement('img');
