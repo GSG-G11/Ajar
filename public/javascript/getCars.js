@@ -1,16 +1,5 @@
 const container = document.querySelector('.container');
 const userName = document.querySelector('#cookies');
-fetch('/cars')
-  .then((res) => res.json())
-  .then((cars) => {
-    const container = document.querySelector('.container');
-    cars.forEach((car) => {
-      const card = document.createElement('div');
-      const cardImg = document.createElement('img');
-      const carName = document.createElement('h3');
-      const type = document.createElement('p');
-      const price = document.createElement('p');
-      const addCartBtn = document.createElement('button');
 
 const getCookie = (cname) => {
   const name = `${cname}=`;

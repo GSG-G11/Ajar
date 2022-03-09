@@ -22,6 +22,7 @@ const login = (req, res) => {
               res.status(400).json({ msg: 'incorrect password' });
             } else {
               const token = jwt.sign(user.username, 'secretkeyfromenvfile');
+              res.cookie('id', user.id);
               res.cookie('name', user.username);
               res.status(200).cookie('token', token).json({ redirect: '/' });
             }

@@ -5,7 +5,8 @@ const addToCart = require('./addToCart');
 const logout = require('./logout');
 const renderCars = require('./renderCar');
 const routProtector = require('./routeProtector');
+const addToCartBtn = require('./addToCartBtn');
 
 module.exports = {
-  signUp, login, addToCart, logout, deleteFromCart, renderCars, routProtector,
+  signUp, login, addToCart, logout, deleteFromCart, renderCars, addToCartBtn, routProtector,
 };
