@@ -2,7 +2,7 @@ const container = document.querySelector('.container');
 fetch('/cars')
   .then((res) => res.json())
   .then((cars) => {
-      console.log(cars);
+    console.log(cars);
     cars.forEach((car) => {
       const card = document.createElement('div');
       const cardImg = document.createElement('img');
@@ -23,5 +23,25 @@ fetch('/cars')
       card.appendChild(type);
       card.appendChild(price);
       card.appendChild(addCartBtn);
+
+      const getCookie = (cname) => {
+        const name = `${cname}=`;
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i += 1) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return '';
+      };
+
+      const cookies = document.cookie;
+      console.log(cookies.split());
+      const userName = document.querySelector('#cookies');
+      userName.textContent = getCookie('name');
     });
   });
