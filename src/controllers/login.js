@@ -1,8 +1,8 @@
 /* eslint-disable consistent-return */
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { getUser } = require('../database/quires');
 const { signInSchema } = require('../utilites/vaildation');
-const jwt = require('jsonwebtoken');
 
 const login = (req, res) => {
   const { email, password } = req.body;
@@ -23,7 +23,7 @@ const login = (req, res) => {
             } else {
               const token = jwt.sign(user.username, 'secretkeyfromenvfile');
               res.cookie('name', user.username);
-              res.status(200).cookie('token', token).redirect('/');
+              res.status(200).cookie('token', token).json({ redirect: '/' });
             }
           });
       }

@@ -6,8 +6,6 @@ const errorMessage = document.querySelector('#error');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const inputData = { email: email.value, password: password.value };
-  console.log(email.value);
-  console.log(password.value);
   fetch('/login', {
     method: 'POST',
     headers: {
@@ -15,13 +13,12 @@ form.addEventListener('submit', (e) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(inputData),
-  }).then((res) => {
-    if (res.status === 200) {
-      window.location = '/';
-    } else {
-      res.json().then((results) => {
+  }).then((res) => res.json())
+    .then((results) => {
+      if (results.redirect) {
+        window.location = './cars.html';
+      } else {
         errorMessage.textContent = results.msg;
-      });
-    }
-  });
+      }
+    });
 });
