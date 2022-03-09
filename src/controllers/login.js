@@ -1,29 +1,32 @@
+/* eslint-disable consistent-return */
 const bcrypt = require('bcryptjs');
 const getUser = require('../database/quires');
+const { signInSchema } = require('../utilites/vaildation');
+const jwt = require('jsonwebtoken');
 
 const login = (req, res) => {
   const { email, password } = req.body;
-  getUser(email)
-    .then((result) => {
-      if (result.rows.length === 0) {
-        return res.status(500).json('error');
+  signInSchema
+    .validateAsync(req.body)
+    .then((data1) => getUser(email))
+    .then((result) => result.rows[0])
+    .then((user) => {
+      if (user === undefined) {
+        res.status(400).json({
+          msg: 'user doesnt exists',
+        });
+      } else {
+        bcrypt.compare(password, user.password)
+          .then((valid) => {
+            if (!valid) {
+              res.status(400).json({ msg: 'incorrect password' });
+            } else {
+              const token = jwt.sign(user.username, 'secretkeyfromenvfile');
+              res.status(200).cookie('token', token).redirect('/');
+            }
+          });
       }
-      return result.rows[0];
     })
-    .then((user) => user.password)
-    .then((hashedPass) => {
-      bcrypt.compare(password, hashedPass, (err, isMatch) => {
-        if (err) {
-          res.status(500).json('from compair');
-        } else {
-          if (!isMatch) {
-            res.status(401).json('error from not match');
-          } else {
-            res.status(200).redirect('/');
-          }
-        }
-      });
-    })
-    .catch((err) => console.log(err));
+    .catch((err) => res.status(400).json({ msg: err.message }));
 };
 module.exports = login;

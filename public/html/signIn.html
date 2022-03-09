@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signin.css" >
     <title>signin</title>
 </head>
 <body>
-  <form action="/signin" method="post">
-      <input class="username" name="username" type="text" placeholder="Enter Your Username" required > 
-      <input class="email" name="email" type="email" placeholder="Enter Your E-mail" required >
-      <input class="password" name="password" type="password" placeholder="Enter Your Password" required>
-        <button class="signin" type="submit">Sign In</button>
-  </form>
+  <nav>
+    <h2>AJAR</h2>
+    <div class="links">
+        <ul>
+            <a href="../index.html"><li>Home</li></a>
+          </ul>
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="./html/signIn.html">Login</a>
+              <a href="./html/signIn.html">Sign Up</a>
+            </div>
+          </div>
+        </nav>
+        <div class="signin-form">
+          <form action="/login" id="login" method="post">
+            <img src="../assets/bmw-R8.png">
+              <input class="email" name="email" type="email" placeholder="Enter Your E-mail" required >
+              <input class="password" name="password" type="password" placeholder="Enter Your Password" required>
+              <p id="error"></p>
+                <button class="signin" type="submit">Sign In</button>
+                <p>Don't Have An Account? <a href="../html/signUp.html">Sigin Up</a></p>
+          </form>
+        </div>
+        <footer>
+          <div class="adress">
+            <h4>Adress</h4>
+            <p>Gaza Step</p>
+            <p>+972 595 421 545</p>
+          </div>
+          <h2>AJAR</h2>
+          <ul>
+            <a href="../index.html"><li>Home</li></a>
+          </ul>
+        </footer>
+        <script src="../javascript/singin.js"></script>
 </body>
+<script src="../javascript/singin.js"></script>
 </html>
