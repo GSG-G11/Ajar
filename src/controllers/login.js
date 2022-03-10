@@ -23,6 +23,7 @@ const login = (req, res) => {
             } else {
               const token = jwt.sign(user.username, 'secretkeyfromenvfile');
               res.cookie('name', user.username);
+              res.cookie('id', user.id);
               res.status(200).cookie('token', token).json({ redirect: '/' });
             }
           });
