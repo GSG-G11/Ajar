@@ -1,8 +1,8 @@
 const connection = require('../config/connection');
 
-const addToCartDB = (id) => connection.query({
-  text: 'SELECT * FROM cars WHERE user_id = ($1);',
-  values: [id],
+const addToCartDB = (id , userId) => connection.query({
+  text: 'UPDATE cars SET user_id = ($2) WHERE id =($1);',
+  values: [ id, userId],
 });
 
 module.exports = addToCartDB;
