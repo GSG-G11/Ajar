@@ -24,6 +24,7 @@ const login = (req, res) => {
               const token = jwt.sign(user.username, 'secretkeyfromenvfile');
               res.cookie('id', user.id);
               res.cookie('name', user.username);
+              res.cookie('id', user.id);
               res.status(200).cookie('token', token).json({ redirect: '/' });
             }
           });
