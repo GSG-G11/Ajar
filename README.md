@@ -5,7 +5,7 @@
 
 ## links
 [Figma link](https://www.figma.com/file/MlkPyNLF4OsFmeMWCTdDKk/Ajar?node-id=0%3A1)
-[heroku link](https://rent-a-car-team5.herokuapp.com/html/cars.html)
+[heroku link](https://rent-a-car-team5.herokuapp.com)
 ## schema
 ![alt text](https://i.imgur.com/PCvREyC.png)
 
