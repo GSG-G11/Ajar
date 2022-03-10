@@ -11,8 +11,7 @@ const signUp = (req, res) => {
     .then((resop) => bcrypt.hash(password, 10))
     .then((hashedPassword) => insertUser(username, email, hashedPassword))
     .then((data) => {
-      res.cookie('name', user.username);
-      res.cookie('id', user.id);
+      res.cookie('name', req.body.username);
       res.status(201).cookie('token', token).json({ redirect: '/' })
     })
     .catch((err) => {
