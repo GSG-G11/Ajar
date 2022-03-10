@@ -30,6 +30,8 @@ if (!getCookie('name')) {
         const price = document.createElement('p');
         const addCartBtn = document.createElement('button');
 
+        card.setAttribute('class', 'card');
+
         cardImg.src = car.image;
         carName.textContent = car.name;
         type.textContent = card.type;
